@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens for the Badminton Club Management platform.
+ *
+ * Why CSS variables + Tailwind's `@theme inline` instead of hardcoding
+ * hex values in every component: every component below references
+ * semantic classes like `bg-brand-600` or `text-ink-secondary` — if the
+ * palette ever needs tweaking, it changes in exactly one place.
+ */
+
+:root {
+  /* Brand */
+  --color-brand-50: #e6f6f1;
+  --color-brand-100: #c1e9dc;
+  --color-brand-200: #97dac4;
+  --color-brand-300: #6bcaac;
+  --color-brand-400: #3cb98f;
+  --color-brand-500: #0ea473;
+  --color-brand-600: #087f5b;
+  --color-brand-700: #066a4c;
+  --color-brand-800: #05543d;
+  --color-brand-900: #033d2c;
+
+  /* Accent (lime) */
+  --color-accent-300: #d4f98b;
+  --color-accent-400: #c4f56a;
+  --color-accent-500: #b7f34a;
+  --color-accent-600: #9ddb2e;
+
+  /* Neutral surfaces */
+  --color-bg: #f7f9f8;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-border: #e4e9e6;
+  --color-border-strong: #d4dbd7;
+
+  /* Text */
+  --color-ink: #17221d;
+  --color-ink-secondary: #718078;
+  --color-ink-muted: #9aa5a0;
+
+  /* Status */
+  --color-success-50: #eafaf0;
+  --color-success-600: #1f9254;
+  --color-warning-50: #fff7e6;
+  --color-warning-600: #b7791f;
+  --color-danger-50: #fdeeee;
+  --color-danger-600: #c53030;
+  --color-info-50: #eaf2ff;
+  --color-info-600: #2563eb;
+
+  --background: var(--color-bg);
+  --foreground: var(--color-ink);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-ink: var(--color-ink);
+  --color-ink-secondary: var(--color-ink-secondary);
+  --color-ink-muted: var(--color-ink-muted);
+
+  --color-success-50: var(--color-success-50);
+  --color-success-600: var(--color-success-600);
+  --color-warning-50: var(--color-warning-50);
+  --color-warning-600: var(--color-warning-600);
+  --color-danger-50: var(--color-danger-50);
+  --color-danger-600: var(--color-danger-600);
+  --color-info-50: var(--color-info-50);
+  --color-info-600: var(--color-info-600);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Thin, unobtrusive scrollbars that still match the palette. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eef1f0 25%, #e3e8e6 37%, #eef1f0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
