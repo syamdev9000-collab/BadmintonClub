@@ -27,12 +27,15 @@ class Settings(BaseSettings):
     secret_key: str = "change-me-in-production"
     access_token_expire_minutes: int = 30
 
-    # --- OTP / SMS provider (member login) ---
-    # "console" = mock mode, logs the OTP instead of sending a real SMS.
-    # "msg91"   = real provider, requires msg91_auth_key + msg91_template_id.
+    # --- OTP / WhatsApp provider (member login) ---
+    # "console"  = mock mode, logs the OTP instead of sending a real message.
+    # "whatsapp" = real provider, sends OTP via Twilio WhatsApp API. Requires
+    #              twilio_account_sid + twilio_auth_token + twilio_whatsapp_from.
     otp_provider: str = "console"
-    msg91_auth_key: str = ""
-    msg91_template_id: str = ""
+    twilio_account_sid: str = ""
+    twilio_auth_token: str = ""
+    # Twilio WhatsApp sender number, e.g. "whatsapp:+14155238886"
+    twilio_whatsapp_from: str = ""
 
     # --- PhonePe payment gateway ---
     # Placeholders until a real merchant account is available. See

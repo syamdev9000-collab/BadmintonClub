@@ -117,6 +117,7 @@ class MemberService:
         such member" rather than silently creating one.
         """
         member = self.repository.get_by_mobile(mobile_number)
+        print(f"get_or_create_member_for_otp_login called with mobile_number: {mobile_number}, found member: {member}")
         if member is None:
             raise MemberNotFoundError(0)
         return member

@@ -40,7 +40,7 @@ app.include_router(expenses.router)
 app.include_router(payments.router)
 app.include_router(notifications.router)
 
-
 @app.get("/")
 def health_check():
+    print("Health check endpoint called.")
     return {"status": "ok", "app": settings.app_name, "environment": settings.environment}

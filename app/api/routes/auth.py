@@ -31,6 +31,7 @@ def admin_login(
     service: MemberServiceDep,
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
 ):
+    print("Admin login endpoint called with username:", form_data.username)
     """OAuth2 form fields `username`/`password` map to mobile_number/password."""
     try:
         admin = service.authenticate_admin(form_data.username, form_data.password)

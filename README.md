@@ -78,9 +78,10 @@ Runs on `http://localhost:3000`. Set `NEXT_PUBLIC_API_BASE_URL` in
 - ⚠️ **PhonePe**: request/response shapes follow PhonePe's Standard
   Checkout API, but calls will fail with a clear error until real
   `PHONEPE_MERCHANT_ID` / `PHONEPE_SALT_KEY` credentials are set in `.env`.
-- ⚠️ **OTP/SMS**: defaults to a "console" mode that logs the OTP instead
-  of sending a real SMS (safe for local development). Switch
-  `OTP_PROVIDER=msg91` and fill in `MSG91_AUTH_KEY`/`MSG91_TEMPLATE_ID`
-  once you have an MSG91 account (see `app/services/otp_service.py`).
+- ⚠️ **OTP/WhatsApp**: defaults to a "console" mode that logs the OTP instead
+  of sending a real WhatsApp message (safe for local development). Switch
+  `OTP_PROVIDER=whatsapp` and fill in `TWILIO_ACCOUNT_SID`/`TWILIO_AUTH_TOKEN`/
+  `TWILIO_WHATSAPP_FROM` once you have a Twilio account with WhatsApp
+  enabled (see `app/services/otp_service.py`).
 - ⚠️ No DB migrations yet (Alembic is installed but not configured) —
   tables are created with `Base.metadata.create_all()` for now.
